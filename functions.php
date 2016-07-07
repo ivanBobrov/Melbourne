@@ -290,6 +290,11 @@ require get_template_directory() . '/inc/page-builder.php';
 require get_template_directory() . '/inc/slider.php';
 
 /**
+ * Video header
+ */
+require get_template_directory() . '/inc/video-header.php';
+
+/**
  * Styles
  */
 require get_template_directory() . '/inc/styles.php';

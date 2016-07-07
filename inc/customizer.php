@@ -132,6 +132,7 @@ function sydney_customize_register( $wp_customize ) {
             'choices' => array(
                 'slider'    => __('Full screen slider', 'sydney'),
                 'image'     => __('Image', 'sydney'),
+                'video'     => __('Video', 'sydney'),
                 'nothing'   => __('No header (only menu)', 'sydney')
             ),
         )
@@ -157,12 +158,79 @@ function sydney_customize_register( $wp_customize ) {
                 'nothing'   => __('No header (only menu)', 'sydney')
             ),
         )
-    );    
+    );
+    
+
+    //___Video___//
+    $wp_customize->add_section(
+        'melbourne_video',
+        array(
+            'title'         => __('Video', 'sydney'),
+            'description'   => __('You can add video in mp4/h264,aac format to your front page', 'sydney'),
+            'priority'      => 12,
+            'panel'         => 'sydney_header_panel',
+        )
+    );
+    //Video file
+    $wp_customize->add_setting(
+        'header_front_video_file',
+        array(
+            'default' => get_template_directory_uri() . '/images/video.mp4',
+            'sanitize_callback' => 'esc_url_raw',
+        )
+    );
+    $wp_customize->add_control(
+        new WP_Customize_Upload_Control(
+            $wp_customize,
+            'header_front_video_file',
+            array(
+               'label'          => __( 'Upload your front video', 'sydney' ),
+               'section'        => 'melbourne_video',
+               'settings'       => 'header_front_video_file',
+               'priority'       => 1
+            )
+        )
+    );
+    //Title
+    $wp_customize->add_setting(
+        'front_video_title',
+        array(
+            'default' => 'Welcome',
+            'sanitize_callback' => 'sydney_sanitize_text',
+        )
+    );
+    $wp_customize->add_control(
+        'front_video_title',
+        array(
+            'label' => __( 'Video title in front of page', 'sydney' ),
+            'section' => 'melbourne_video',
+            'type' => 'text',
+            'priority' => 2
+        )
+    );
+    //Subtitle
+    $wp_customize->add_setting(
+        'front_video_subtitle',
+        array(
+            'default' => 'Join us!',
+            'sanitize_callback' => 'sydney_sanitize_text',
+        )
+    );
+    $wp_customize->add_control(
+        'front_video_subtitle',
+        array(
+            'label' => __( 'Video subtitle in front of page', 'sydney' ),
+            'section' => 'melbourne_video',
+            'type' => 'text',
+            'priority' => 29
+        )
+    );
+
     //___Slider___//
     $wp_customize->add_section(
         'sydney_slider',
         array(
-            'title'         => __('Header Slider', 'sydney'),
+            'title'         => __('Slider', 'sydney'),
             'description'   => __('You can add up to 5 images in the slider. Make sure you select where to display your slider from the Header Type section found above. You can also add a Call to action button (scroll down to find the options)', 'sydney'),
             'priority'      => 11,
             'panel'         => 'sydney_header_panel',
@@ -541,7 +609,18 @@ function sydney_customize_register( $wp_customize ) {
             'priority' => 29
         )
     );
-    //Header button
+
+    //___Action button___//
+    $wp_customize->add_section(
+        'melbourne_action_button',
+        array(
+            'title'         => __('Action button', 'Sydney'),
+            'description'   => __('Specify text on your action button and provide url.', 'Sydney'),
+            'panel'         => 'sydney_header_panel',
+            'priority'      => 14
+        )
+    );
+
     $wp_customize->add_setting('sydney_options[info]', array(
             'type'              => 'info_control',
             'capability'        => 'edit_theme_options',
@@ -550,9 +629,9 @@ function sydney_customize_register( $wp_customize ) {
     );
     $wp_customize->add_control( new Sydney_Info( $wp_customize, 'hbutton', array(
         'label' => __('Call to action button', 'sydney'),
-        'section' => 'sydney_slider',
+        'section' => 'melbourne_action_button',
         'settings' => 'sydney_options[info]',
-        'priority' => 30
+        'priority' => 1
         ) )
     );     
     $wp_customize->add_setting(
@@ -566,9 +645,9 @@ function sydney_customize_register( $wp_customize ) {
         'slider_button_url',
         array(
             'label' => __( 'URL for your call to action button', 'sydney' ),
-            'section' => 'sydney_slider',
+            'section' => 'melbourne_action_button',
             'type' => 'text',
-            'priority' => 31
+            'priority' => 2
         )
     );
     $wp_customize->add_setting(
@@ -582,11 +661,12 @@ function sydney_customize_register( $wp_customize ) {
         'slider_button_text',
         array(
             'label' => __( 'Text for your call to action button', 'sydney' ),
-            'section' => 'sydney_slider',
+            'section' => 'melbourne_action_button',
             'type' => 'text',
-            'priority' => 32
+            'priority' => 3
         )
-    );         
+    );
+
     //___Menu style___//
     $wp_customize->add_section(
         'sydney_menu_style',
@@ -1644,6 +1724,7 @@ function sydney_sanitize_layout( $input ) {
     $valid = array(
         'slider'    => __('Full screen slider', 'sydney'),
         'image'     => __('Image', 'sydney'),
+        'video'     => __('Video', 'sydney'),
         'nothing'   => __('Nothing (only menu)', 'sydney')
     );
  
