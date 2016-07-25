@@ -191,6 +191,62 @@ function sydney_customize_register( $wp_customize ) {
             )
         )
     );
+    //Loop checkbox
+    $wp_customize->add_setting(
+        'header_video_loop_enabled',
+        array(
+            'default' => '',
+            'sanitize_callback' => 'sydney_sanitize_checkbox'
+        )
+    );
+    $wp_customize->add_control(
+        'header_video_loop_enabled',
+        array(
+            'label' => __( 'Loop video' , 'sydney'),
+            'section' => 'melbourne_video',
+            'type' => 'checkbox',
+            'priority' => 2
+        )
+    );
+    //Video loop overlay
+    $wp_customize->add_setting(
+        'header_video_loop_overlay',
+        array(
+            'default' => '1000',
+            'sanitize_callback' => 'absint'
+        )
+    );
+    $wp_customize->add_control(
+        'header_video_loop_overlay',
+        array(
+            'label' => 'Video loop overlay',
+            'section' => 'melbourne_video',
+            'type' => 'number',
+            'description' => __( 'Time of overlay in milliseconds. Make sure you loop is enabled.', 'sydney'),
+            'priority' => 3
+        )
+    );
+    $wp_customize->add_setting(
+        'video_main_image',
+        array(
+            'default' => get_template_directory_uri() . '/images/1.jpg',
+            'sanitize_callback' => 'esc_url_raw',
+        )
+    );
+    $wp_customize->add_control(
+        new WP_Customize_Image_Control(
+            $wp_customize,
+            'video_main_image',
+            array(
+               'label'          => __( 'Fallback image', 'sydney' ),
+               'type'           => 'image',
+               'section'        => 'melbourne_video',
+               'settings'       => 'video_main_image',
+               'description'    => __('Image will be shown at the end of video (if it is not looped) and if video not loaded yet.', 'sydney'),
+               'priority'       => 4,
+            )
+        )
+    );
     //Title
     $wp_customize->add_setting(
         'front_video_title',
@@ -205,7 +261,7 @@ function sydney_customize_register( $wp_customize ) {
             'label' => __( 'Video title in front of page', 'sydney' ),
             'section' => 'melbourne_video',
             'type' => 'text',
-            'priority' => 2
+            'priority' => 5
         )
     );
     //Subtitle
@@ -222,7 +278,7 @@ function sydney_customize_register( $wp_customize ) {
             'label' => __( 'Video subtitle in front of page', 'sydney' ),
             'section' => 'melbourne_video',
             'type' => 'text',
-            'priority' => 29
+            'priority' => 6
         )
     );
 

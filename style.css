@@ -5,7 +5,6 @@ Author: aThemes
 Author URI: http://athemes.com
 Description: Sydney is a powerful business theme that provides a fast way for companies or freelancers to create an awesome online presence. Sydney brings plenty of customization possibilities like access to all Google Fonts, full color control, layout control, logo upload, full screen slider, header image, sticky navigation and much more. Also, Sydney provides all the construction blocks you need to rapidly create an engaging front page. Sydney 1.30 version.
 Version: 0.1.2
-Template: Sydney 1.30
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: sydney
@@ -1061,7 +1060,7 @@ Hero section
 	.slide-text.slides {
 	   padding-left: 0;
 	}
-	.slides-container .slide-item {
+	.slides-container .slide-item, .video-image {
 	    background-attachment: fixed;
 	    background-position: center;
 	    background-repeat: no-repeat;
@@ -1177,6 +1176,7 @@ Hero section
     transform: translate(-50%, -50%);
 }
 .video-container {
+	background-color: #000000;
 	position: relative;
 	width: 100%;
 	height: 100%;
@@ -3049,7 +3049,7 @@ Panels
 		}
 	}
 	@media only screen and (max-width: 1024px) {
-		.slides-container .slide-item,
+		.slides-container .slide-item, .video-image,
 		.panel-row-style {
 			background-attachment: scroll;
 			background-position: center !important;

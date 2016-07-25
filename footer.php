@@ -15,6 +15,8 @@
 		<?php get_sidebar('footer'); ?>
 	<?php endif; ?>
 
+	<?php if (!is_front_page()) : ?>
+
     <a class="go-top"><i class="fa fa-angle-up"></i></a>
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
@@ -24,6 +26,9 @@
 			<?php printf( __( 'Theme: %2$s by %1$s.', 'sydney' ), 'aThemes', '<a href="http://athemes.com/theme/sydney" rel="designer">Sydney</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
+
+	<?php endif; ?>
+
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

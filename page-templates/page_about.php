@@ -1,11 +1,11 @@
 <?php
 /*
-Template Name: Front Page
+Template Name: About Page
 */
 
 get_header(); ?>
 	
-	<!--<div id="primary" class="fp-content-area">
+	<div id="primary" class="fp-content-area">
 		<main id="main" class="site-main" role="main">
 			<div class="entry-content">
 				<?php while ( have_posts() ) : the_post(); ?>
@@ -13,7 +13,7 @@ get_header(); ?>
 				<?php endwhile; ?>
 			</div><!-- .entry-content -->
 
-		<!--</main><!-- #main -->
-	<!--</div><!-- #primary -->
+		</main><!-- #main -->
+	</div><!-- #primary -->
 
 <?php get_footer(); ?>
