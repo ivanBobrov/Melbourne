@@ -21,7 +21,7 @@
 <?php endif; ?>
 
 <?php wp_head(); ?>
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/video.js"></script>
+
 </head>
 
 <body <?php body_class(); ?>>

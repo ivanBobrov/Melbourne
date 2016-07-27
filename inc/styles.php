@@ -126,13 +126,13 @@ function sydney_custom_styles($custom) {
 	$custom .= ".site-header.float-header { background-color:" . esc_attr($rgba) . ";}" . "\n";
 	$custom .= "@media only screen and (max-width: 991px) { .site-header { background-color:" . esc_attr($menu_bg_color) . ";}}" . "\n";
 	//Site title
-	$site_title = get_theme_mod( 'site_title_color', '#ffffff' );
+	$site_title = is_front_page() ? '#ffffff' : get_theme_mod( 'site_title_color', '#ffffff' );
 	$custom .= ".site-title a, .site-title a:hover { color:" . esc_attr($site_title) . "}"."\n";
 	//Site desc
 	$site_desc = get_theme_mod( 'site_desc_color', '#ffffff' );
 	$custom .= ".site-description { color:" . esc_attr($site_desc) . "}"."\n";
 	//Top level menu items color
-	$top_items_color = get_theme_mod( 'top_items_color', '#ffffff' );
+	$top_items_color = is_front_page() ? '#ffffff' : get_theme_mod( 'top_items_color', '#ffffff' );
 	$custom .= "#mainnav ul li a, #mainnav ul li::before { color:" . esc_attr($top_items_color) . "}"."\n";
 	//Sub menu items color
 	$submenu_items_color = get_theme_mod( 'submenu_items_color', '#ffffff' );
