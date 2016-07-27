@@ -121,7 +121,7 @@ function sydney_custom_styles($custom) {
 	$custom .= ".roll-socials li a:hover,.roll-socials li a,.roll-button.light:hover,.roll-button.border,.roll-button,.roll-icon-list .icon,.roll-icon-box .icon,.owl-theme .owl-controls .owl-page span,.comment .comment-detail,.widget-tags .tag-list a:hover,.blog-pagination ul li,.hentry blockquote,.error-wrap #search-submit:hover,textarea:focus,input[type=\"text\"]:focus,input[type=\"password\"]:focus,input[type=\"datetime\"]:focus,input[type=\"datetime-local\"]:focus,input[type=\"date\"]:focus,input[type=\"month\"]:focus,input[type=\"time\"]:focus,input[type=\"week\"]:focus,input[type=\"number\"]:focus,input[type=\"email\"]:focus,input[type=\"url\"]:focus,input[type=\"search\"]:focus,input[type=\"tel\"]:focus,input[type=\"color\"]:focus, button, input[type=\"button\"], input[type=\"reset\"], input[type=\"submit\"], .archive .team-social li a { border-color:" . esc_attr($primary_color) . "}"."\n";
 	}
 	//Menu background
-	$menu_bg_color = get_theme_mod( 'menu_bg_color', '#000000' );
+	$menu_bg_color = is_front_page() ? get_theme_mod('primary_color', '#000000') : get_theme_mod( 'menu_bg_color', '#000000' );
 	$rgba = sydney_hex2rgba($menu_bg_color, 0.9);
 	$custom .= ".site-header.float-header { background-color:" . esc_attr($rgba) . ";}" . "\n";
 	$custom .= "@media only screen and (max-width: 991px) { .site-header { background-color:" . esc_attr($menu_bg_color) . ";}}" . "\n";
