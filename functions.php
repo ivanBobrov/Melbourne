@@ -316,6 +316,12 @@ require get_template_directory() . '/inc/theme-info.php';
  */
 require get_template_directory() . '/inc/woocommerce.php';
 
+
+/**
+ * Melbourne contact widget
+ */
+require get_template_directory() . '/widgets/contact-widget/contact-widget.php';
+
 /**
  *TGM Plugin activation.
  */
