@@ -1,0 +1,36 @@
+/*
+	Melbourne css file
+*/
+
+/*
+----------------------------------
+Melbourne illusatrated text widget
+----------------------------------
+*/
+
+.melbourne-illustrated-text-container {
+	/*position: relative;*/
+}
+
+.melbourne-illustrated-text-content-container {
+	display: inline-block;
+	vertical-align: middle;
+	width: 60%;
+	padding: 15px;
+	text-align: justify;
+}
+
+.melbourne-illustrated-text-img-container {
+	display: inline-block;
+	vertical-align: middle;
+	width: 40%;
+	padding: 15px;
+}
+
+@media only screen and (max-width: 1024px) {
+	.melbourne-illustrated-text-content-container,
+	.melbourne-illustrated-text-img-container {
+		display: block;
+		width: auto;
+	}
+}

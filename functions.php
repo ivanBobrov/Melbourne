@@ -196,6 +196,7 @@ function sydney_scripts() {
 add_action( 'wp_enqueue_scripts', 'sydney_scripts' );
 
 function melbourne_scripts() {
+	wp_enqueue_style('melbourne-style', get_template_directory_uri() . '/css/melbourne.css');
 	if (is_front_page()) {
 		wp_enqueue_script( 'melbourne-video', get_template_directory_uri() . '/js/video.js');
 	}
@@ -321,6 +322,11 @@ require get_template_directory() . '/inc/woocommerce.php';
  * Melbourne contact widget
  */
 require get_template_directory() . '/widgets/contact-widget/contact-widget.php';
+
+/**
+ * Melbourne illustrated text widget
+ */
+require get_template_directory() . '/widgets/illustrated-text-widget/illustrated-text-widget.php';
 
 /**
  *TGM Plugin activation.
