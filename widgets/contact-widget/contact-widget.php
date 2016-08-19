@@ -98,7 +98,7 @@ class ContactWidget extends WP_Widget {
 
 		<p>
       		<label for="<?php echo $this->get_field_id('image_uri'); ?>">Image</label><br />
-      		<input type="text" class="img" name="<?php echo $this->get_field_name('image_uri'); ?>" id="<?php echo $this->get_field_id('image_uri'); ?>" value="<?php echo $instance['image_uri']; ?>" />
+      		<input type="text" class="img" name="<?php echo $this->get_field_name('image_uri'); ?>" id="<?php echo $this->get_field_id('image_uri'); ?>" value="<?php echo esc_attr($image_uri); ?>" />
       		<input type="button" class="select-img" value="Select Image" />
     </p>
 
