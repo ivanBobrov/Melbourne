@@ -1455,25 +1455,6 @@ Widgets
 	.widget-tags .tag-list a:hover {
 		color: #5e5e5e;
 	}
-	.widget-contact-rounded-container {
-	    margin: 0 auto 20px auto;
-	    width: 100px;
-	    height: 100px;
-	    position: relative;
-    	overflow: hidden;
-    	webkit-border-radius: 50%;
-    	moz-border-radius: 50%;
-    	ms-border-radius: 50%;
-    	o-border-radius: 50%;
-    	border-radius: 50%;
-    	border: 2px solid;
-	}
-	.widget-contact-rounded-container img {
-    	height: 100%;
-    	margin: 0 -100%;
-    	min-width: 100px;
-    	max-width: none;
-	}
 /*--------------------------------------------------------------
 Blog single
 --------------------------------------------------------------*/
