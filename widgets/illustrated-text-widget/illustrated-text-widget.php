@@ -42,7 +42,7 @@ class IllustratedTextWidget extends WP_Widget {
 			$widget .= $textElement;
 			$widget .= $imgElement;
 		}
-		$widget .= "</div";
+		$widget .= "</div>";
 
 		echo $widget;
 
@@ -89,7 +89,6 @@ class IllustratedTextWidget extends WP_Widget {
       		<input type="text" class="img" name="<?php echo esc_attr($this->get_field_name('imageUrl')); ?>" id="<?php echo esc_attr($this->get_field_id('imageUrl')); ?>" value="<?php echo esc_attr($imageUrl); ?>" />
       		<input type="button" class="select-img" value="Select Image" />
 		</p>
-    </p>
 
 		<?php
 	}
