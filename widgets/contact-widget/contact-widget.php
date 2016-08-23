@@ -18,15 +18,14 @@ class ContactWidget extends WP_Widget {
 	// This is where the action happens
 	public function widget( $args, $instance ) {
 		$title = apply_filters( 'widget_title', $instance['title'] );
-		
+
 		// before and after widget arguments are defined by themes
 		echo $args['before_widget'];
-		
+
 		if ( ! empty( $title ) )
 			echo $args['before_title'] . $title . $args['after_title'];
-		
+
 		// This is where you run the code and display the output
-		
 		$imageSource = $instance['image_uri'];
 		$name = $instance['name1'];
 		$phone = $instance['phone1'];
@@ -34,7 +33,7 @@ class ContactWidget extends WP_Widget {
 
 		?>
 
-			<div style="text-align: center;">
+			<div class="contact-widget-container">
 				<?php if (!empty($imageSource)) : ?>
 					<div class="widget-contact-rounded-container">
 						<img title="<?php echo $name; ?>" alt="" src="<?php echo $imageSource; ?>">
@@ -42,7 +41,7 @@ class ContactWidget extends WP_Widget {
 				<?php endif; ?>
 				<div>
 					<div><?php echo $name; ?></div>
-					
+
 					<?php if (!empty($phone)) : ?>
 						<div><?php echo $phone; ?></div>
 					<?php endif; ?>
@@ -78,7 +77,7 @@ class ContactWidget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
 		</p>
-		
+
 		<hr>
 
 		<p>
@@ -113,7 +112,7 @@ class ContactWidget extends WP_Widget {
 		$instance['phone1'] = ( ! empty($new_instance['phone1']) ? $new_instance['phone1'] : '');
 		$instance['mail1'] = ( ! empty($new_instance['mail1']) ? $new_instance['mail1'] : '');
 		$instance['image_uri'] = ( ! empty($new_instance['image_uri']) ? $new_instance['image_uri'] : '');
-		
+
 		return $instance;
 	}
 

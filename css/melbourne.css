@@ -8,6 +8,11 @@ Melbourne contact widget
 ------------------------
 */
 
+.contact-widget-container {
+	text-align: center;
+	margin: 20px;
+}
+
 .widget-contact-rounded-container {
     margin: 0 auto 20px auto;
     width: 100px;
