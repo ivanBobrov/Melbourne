@@ -35,6 +35,16 @@ Melbourne contact widget
 	max-width: none;
 }
 
+.widget-contact-h-line {
+	display: block;
+    border: 0;
+    /*border-top: 1px solid #77a;
+    width: 80%;*/
+    height: 1px;
+    margin: 0.5em 0;
+    padding: 0;
+}
+
 /*
 ----------------------------------
 Melbourne illusatrated text widget

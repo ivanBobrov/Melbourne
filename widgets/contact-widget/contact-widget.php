@@ -31,6 +31,7 @@ class ContactWidget extends WP_Widget {
 		$contacts = $instance['contacts'];
 		$position = $instance['position'];
 		$location = $instance['location'];
+		$about = $instance['about'];
 
 		?>
 
@@ -45,7 +46,9 @@ class ContactWidget extends WP_Widget {
 						<div><?php echo $position; ?></div>
 					<?php endif; ?>
 
-					<div><b><?php echo $name; ?></b></div>
+					<?php if (!empty($name)) : ?>
+						<div><b><?php echo $name; ?></b></div>
+					<?php endif; ?>
 
 					<?php if (!empty($location)) : ?>
 						<div><?php echo $location; ?></div>
@@ -53,7 +56,16 @@ class ContactWidget extends WP_Widget {
 
 					<?php if (!empty($contacts)) : ?>
 						<div><?php echo $contacts; ?></div>
-					<?php endif; ?>					
+					<?php endif; ?>
+
+					<?php if (!empty($about)) {
+							if (!empty($position) || !empty($name) || !empty($location) || !empty($contacts)) {
+								echo "<div class='widget-contact-h-line'></div>";
+							}
+
+							echo "<div>" . $about . "</div>";
+						}
+					?>
 				</div>
 			</div>
 
@@ -75,6 +87,7 @@ class ContactWidget extends WP_Widget {
 		$contacts = isset($instance['contacts']) ? $instance['contacts'] : '';
 		$position = isset($instance['position']) ? $instance['position'] : '';
 		$location = isset($instance['location']) ? $instance['location'] : '';
+		$about = isset($instance['about']) ? $instance['about'] : '';
 		$image_uri = isset($instance['image_uri']) ? $instance['image_uri'] : '';
 
 		// Widget admin form
@@ -107,6 +120,12 @@ class ContactWidget extends WP_Widget {
 		</p>
 
 		<p>
+			<label for="<?php echo esc_attr($this->get_field_id('about')); ?>">About:</label><br>
+			<textarea rows="10" cols="100" id="<?php echo esc_attr($this->get_field_id('about')); ?>" name="<?php echo esc_attr($this->get_field_name('about')); ?>"><?php echo esc_textarea($about);
+			?></textarea>
+		</p>
+
+		<p>
       		<label for="<?php echo $this->get_field_id('image_uri'); ?>">Image</label><br />
       		<input type="text" class="img" name="<?php echo $this->get_field_name('image_uri'); ?>" id="<?php echo $this->get_field_id('image_uri'); ?>" value="<?php echo esc_attr($image_uri); ?>" />
       		<input type="button" class="select-img" value="Select Image" />
@@ -118,12 +137,13 @@ class ContactWidget extends WP_Widget {
 	// Updating widget replacing old instances with new
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
-		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-		$instance['name1'] = ( ! empty($new_instance['name1']) ? $new_instance['name1'] : 'Name');
-		$instance['contacts'] = ( ! empty($new_instance['contacts']) ? $new_instance['contacts'] : '');
-		$instance['position'] = ( ! empty($new_instance['position']) ? $new_instance['position'] : '');
-		$instance['location'] = ( ! empty($new_instance['location']) ? $new_instance['location'] : '');
-		$instance['image_uri'] = ( ! empty($new_instance['image_uri']) ? $new_instance['image_uri'] : '');
+		$instance['title'] 		= ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+		$instance['name1'] 		= ( ! empty($new_instance['name1']) ? $new_instance['name1'] : '	');
+		$instance['contacts'] 	= ( ! empty($new_instance['contacts']) ? $new_instance['contacts'] : '');
+		$instance['position'] 	= ( ! empty($new_instance['position']) ? $new_instance['position'] : '');
+		$instance['location'] 	= ( ! empty($new_instance['location']) ? $new_instance['location'] : '');
+		$instance['about'] 		= ( ! empty($new_instance['about']) ? $new_instance['about'] : '');
+		$instance['image_uri'] 	= ( ! empty($new_instance['image_uri']) ? $new_instance['image_uri'] : '');
 
 		return $instance;
 	}
