@@ -28,8 +28,9 @@ class ContactWidget extends WP_Widget {
 		// This is where you run the code and display the output
 		$imageSource = $instance['image_uri'];
 		$name = $instance['name1'];
-		$phone = $instance['phone1'];
-		$mail = $instance['mail1'];
+		$contacts = $instance['contacts'];
+		$position = $instance['position'];
+		$location = $instance['location'];
 
 		?>
 
@@ -40,15 +41,19 @@ class ContactWidget extends WP_Widget {
 					</div>
 				<?php endif; ?>
 				<div>
-					<div><?php echo $name; ?></div>
-
-					<?php if (!empty($phone)) : ?>
-						<div><?php echo $phone; ?></div>
+					<?php if (!empty($position)) : ?>
+						<div><?php echo $position; ?></div>
 					<?php endif; ?>
 
-					<?php if (!empty($mail)) : ?>
-						<div><?php echo $mail; ?></div>
-					<?php endif; ?>			
+					<div><b><?php echo $name; ?></b></div>
+
+					<?php if (!empty($location)) : ?>
+						<div><?php echo $location; ?></div>
+					<?php endif; ?>
+
+					<?php if (!empty($contacts)) : ?>
+						<div><?php echo $contacts; ?></div>
+					<?php endif; ?>					
 				</div>
 			</div>
 
@@ -67,8 +72,9 @@ class ContactWidget extends WP_Widget {
 		}
 
 		$name1 = isset($instance['name1']) ? $instance['name1'] : 'Name';
-		$phone1 = isset($instance['phone1']) ? $instance['phone1'] : '';
-		$mail1 = isset($instance['mail1']) ? $instance['mail1'] : '';
+		$contacts = isset($instance['contacts']) ? $instance['contacts'] : '';
+		$position = isset($instance['position']) ? $instance['position'] : '';
+		$location = isset($instance['location']) ? $instance['location'] : '';
 		$image_uri = isset($instance['image_uri']) ? $instance['image_uri'] : '';
 
 		// Widget admin form
@@ -86,20 +92,25 @@ class ContactWidget extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'phone1' ); ?>"><?php _e( 'Phone:' ); ?></label><br>
-			<input size="50" type="text" id="<?php echo $this->get_field_id( 'phone1' ) ?>" name="<?php echo $this->get_field_name( 'phone1' ); ?>" value="<?php echo esc_attr($phone1); ?>" />
+			<label for="<?php echo $this->get_field_id( 'contacts' ); ?>"><?php _e( 'Contacts:' ); ?></label><br>
+			<input size="50" type="text" id="<?php echo $this->get_field_id( 'contacts' ) ?>" name="<?php echo $this->get_field_name( 'contacts' ); ?>" value="<?php echo esc_attr($contacts); ?>" />
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'mail1' ); ?>"><?php _e( 'Mail:' ); ?></label><br>
-			<input size="50" type="text" id="<?php echo $this->get_field_id( 'mail1' ) ?>" name="<?php echo $this->get_field_name( 'mail1' ); ?>" value="<?php echo esc_attr($mail1); ?>" />
+			<label for="<?php echo $this->get_field_id( 'position' ); ?>"><?php _e( 'Position:' ); ?></label><br>
+			<input size="50" type="text" id="<?php echo $this->get_field_id( 'position' ) ?>" name="<?php echo $this->get_field_name( 'position' ); ?>" value="<?php echo esc_attr($position); ?>" />
+		</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'location' ); ?>"><?php _e( 'Location and univercity:' ); ?></label><br>
+			<input size="50" type="text" id="<?php echo $this->get_field_id( 'location' ) ?>" name="<?php echo $this->get_field_name( 'location' ); ?>" value="<?php echo esc_attr($location); ?>" />
 		</p>
 
 		<p>
       		<label for="<?php echo $this->get_field_id('image_uri'); ?>">Image</label><br />
       		<input type="text" class="img" name="<?php echo $this->get_field_name('image_uri'); ?>" id="<?php echo $this->get_field_id('image_uri'); ?>" value="<?php echo esc_attr($image_uri); ?>" />
       		<input type="button" class="select-img" value="Select Image" />
-    </p>
+    	</p>
 
 		<?php
 	}
@@ -109,8 +120,9 @@ class ContactWidget extends WP_Widget {
 		$instance = array();
 		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
 		$instance['name1'] = ( ! empty($new_instance['name1']) ? $new_instance['name1'] : 'Name');
-		$instance['phone1'] = ( ! empty($new_instance['phone1']) ? $new_instance['phone1'] : '');
-		$instance['mail1'] = ( ! empty($new_instance['mail1']) ? $new_instance['mail1'] : '');
+		$instance['contacts'] = ( ! empty($new_instance['contacts']) ? $new_instance['contacts'] : '');
+		$instance['position'] = ( ! empty($new_instance['position']) ? $new_instance['position'] : '');
+		$instance['location'] = ( ! empty($new_instance['location']) ? $new_instance['location'] : '');
 		$instance['image_uri'] = ( ! empty($new_instance['image_uri']) ? $new_instance['image_uri'] : '');
 
 		return $instance;
