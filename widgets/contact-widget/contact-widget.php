@@ -157,13 +157,13 @@ function melbourne_contact_widget_load() {
 add_action( 'widgets_init', 'melbourne_contact_widget_load' );
 
 // queue up the necessary js
-function hrw_enqueue()
+function contact_widget_enqueue()
 {
   wp_enqueue_style('thickbox');
   wp_enqueue_script('media-upload');
   wp_enqueue_script('thickbox');
-  wp_enqueue_script('hrw', get_template_directory_uri() . '/widgets/contact-widget/script.js', null, null, true);
+  wp_enqueue_script('melbourne-image-loader', get_template_directory_uri() . '/js/melbourne-image-loader.js', null, null, true);
 }
-add_action('admin_enqueue_scripts', 'hrw_enqueue');
+add_action('admin_enqueue_scripts', 'contact_widget_enqueue');
 
 ?>

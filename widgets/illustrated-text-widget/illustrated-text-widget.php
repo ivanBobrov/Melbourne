@@ -118,7 +118,7 @@ function melbourne_illustrated_text_enqueue()
   wp_enqueue_style('thickbox');
   wp_enqueue_script('media-upload');
   wp_enqueue_script('thickbox');
-  wp_enqueue_script('melbourne_illustarted_text_script', get_template_directory_uri() . '/widgets/illustrated-text-widget/script.js', null, null, true);
+  wp_enqueue_script('melbourne-image-loader', get_template_directory_uri() . '/js/melbourne-image-loader.js', null, null, true);
 }
 add_action('admin_enqueue_scripts', 'melbourne_illustrated_text_enqueue');
 
