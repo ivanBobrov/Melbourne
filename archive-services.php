@@ -7,44 +7,52 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="post-wrap" role="main">
+    <div id="content" class="page-wrap">
+        <div class="container content-wrapper">
+            <div class="row">
 
-		<?php if ( have_posts() ) : ?>
+                <div id="primary" class="content-area">
+                    <main id="main" class="post-wrap" role="main">
 
-			<?php while ( have_posts() ) : the_post(); ?>
-				<?php $icon = get_post_meta( get_the_ID(), 'wpcf-service-icon', true ); ?>
-				<?php $link = get_post_meta( get_the_ID(), 'wpcf-service-link', true ); ?>
-				<div class="service col-md-4">
-					<div class="roll-icon-box">
-						<?php if ($icon) : ?>			
-						<div class="icon">
-							<?php echo '<i class="fa ' . esc_html($icon) . '"></i>'; ?>
-						</div>
-						<?php endif; ?>							
-						<div class="content">
-							<h3>
-								<?php if ($link) : ?>
-								<a href="<?php echo esc_url($link); ?>"><?php the_title(); ?></a>
-								<?php else : ?>
-								<?php the_title(); ?>
-								<?php endif; ?>
-							</h3>
-							<?php the_content(); ?>
-						</div>	
-					</div>
-				</div>
-			<?php endwhile; ?>
+                    <?php if ( have_posts() ) : ?>
 
-			<?php the_posts_navigation(); ?>
+                        <?php while ( have_posts() ) : the_post(); ?>
+                            <?php $icon = get_post_meta( get_the_ID(), 'wpcf-service-icon', true ); ?>
+                            <?php $link = get_post_meta( get_the_ID(), 'wpcf-service-link', true ); ?>
+                            <div class="service col-md-4">
+                                <div class="roll-icon-box">
+                                    <?php if ($icon) : ?>           
+                                    <div class="icon">
+                                        <?php echo '<i class="fa ' . esc_html($icon) . '"></i>'; ?>
+                                    </div>
+                                    <?php endif; ?>                         
+                                    <div class="content">
+                                        <h3>
+                                            <?php if ($link) : ?>
+                                            <a href="<?php echo esc_url($link); ?>"><?php the_title(); ?></a>
+                                            <?php else : ?>
+                                            <?php the_title(); ?>
+                                            <?php endif; ?>
+                                        </h3>
+                                        <?php the_content(); ?>
+                                    </div>  
+                                </div>
+                            </div>
+                        <?php endwhile; ?>
 
-		<?php else : ?>
+                        <?php the_posts_navigation(); ?>
 
-			<?php get_template_part( 'content', 'none' ); ?>
+                    <?php else : ?>
 
-		<?php endif; ?>
+                        <?php get_template_part( 'content', 'none' ); ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+                    <?php endif; ?>
+
+                    </main><!-- #main -->
+                </div><!-- #primary -->
+
+            </div>
+        </div>
+    </div><!-- #content -->
 
 <?php get_footer(); ?>

@@ -6,35 +6,42 @@
  */
 
 get_header(); ?>
+<div id="content" class="page-wrap">
+    <div class="container content-wrapper">
+        <div class="row">
+        
+            <div id="primary" class="content-area col-md-9 <?php echo sydney_blog_layout(); ?>">
+                <main id="main" class="post-wrap" role="main">
+                <?php if ( have_posts() ) : ?>
 
-	<div id="primary" class="content-area col-md-9 <?php echo sydney_blog_layout(); ?>">
-		<main id="main" class="post-wrap" role="main">
-		<?php if ( have_posts() ) : ?>
+                <div class="posts-layout">
+                    <?php while ( have_posts() ) : the_post(); ?>
 
-		<div class="posts-layout">
-			<?php while ( have_posts() ) : the_post(); ?>
+                        <?php
+                            get_template_part( 'content', get_post_format() );
+                        ?>
 
-				<?php
-					get_template_part( 'content', get_post_format() );
-				?>
+                    <?php endwhile; ?>
+                </div>
 
-			<?php endwhile; ?>
-		</div>
+                    <?php the_posts_navigation(); ?>
 
-			<?php the_posts_navigation(); ?>
+                <?php else : ?>
 
-		<?php else : ?>
+                    <?php get_template_part( 'content', 'none' ); ?>
 
-			<?php get_template_part( 'content', 'none' ); ?>
+                <?php endif; ?>
 
-		<?php endif; ?>
+                </main><!-- #main -->
+            </div><!-- #primary -->
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+        <?php 
+            if ( get_theme_mod('blog_layout','classic') == 'classic' ) :
+            get_sidebar();
+            endif;
+        ?>
 
-<?php 
-	if ( get_theme_mod('blog_layout','classic') == 'classic' ) :
-	get_sidebar();
-	endif;
-?>
+        </div>
+    </div>
+</div><!-- #content -->
 <?php get_footer(); ?>

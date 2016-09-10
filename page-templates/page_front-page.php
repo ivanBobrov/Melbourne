@@ -4,7 +4,17 @@ Template Name: Front Page
 */
 
 get_header(); ?>
+
+	<?php melbourne_video_header(); ?>
 	
+	<div id="content" class="page-wrap">
+		<div class="container content-wrapper">
+			<div class="row">
+
+			</div>
+		</div>
+	</div><!-- #content -->
+
 	<!--<div id="primary" class="fp-content-area">
 		<main id="main" class="site-main" role="main">
 			<div class="entry-content">

@@ -59,13 +59,11 @@
 		</div>
 	</header><!-- #masthead -->
 	<?php sydney_slider_template(); ?>
-	<?php melbourne_video_header(); ?>
+	
 
 	<div class="header-image">
 		<?php sydney_header_overlay(); ?>
 		<img class="header-inner" src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" alt="<?php bloginfo('name'); ?>">
 	</div>
 
-	<div id="content" class="page-wrap">
-		<div class="container content-wrapper">
-			<div class="row">
+	

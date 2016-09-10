@@ -7,9 +7,6 @@
  * @package Sydney
  */
 ?>
-			</div>
-		</div>
-	</div><!-- #content -->
 
 	<?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
 		<?php get_sidebar('footer'); ?>
