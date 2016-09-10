@@ -317,6 +317,10 @@ require get_template_directory() . '/inc/theme-info.php';
  */
 require get_template_directory() . '/inc/woocommerce.php';
 
+/**
+ * Social links module
+ */
+require get_template_directory() . '/inc/social-links.php';
 
 /**
  * Melbourne contact widget

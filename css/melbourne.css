@@ -4,6 +4,45 @@
 
 /*
 ------------------------
+Melbourne header
+------------------------
+*/
+
+.social-links-container {
+    width: 1170px;
+    margin: auto;
+    padding: 0 2%; 
+    text-align: right;
+}
+
+.social-link {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: 40px;
+    height: 40px;
+}
+
+.social-link img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 40px;
+}
+
+.social-link img:hover {
+    width: 40px;
+    top: -40px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .social-links-container {
+        display: none;
+    }
+}
+
+/*
+------------------------
 Melbourne contact widget
 ------------------------
 */
