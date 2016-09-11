@@ -18,9 +18,9 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info container">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'sydney' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'sydney' ), 'WordPress' ); ?></a>
+			<a href="<?php echo esc_url('http://askkm.org/'); ?>"><?php echo "Ассоциация студенческих клубов классической музыки"; ?></a>
 			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %2$s by %1$s.', 'sydney' ), 'aThemes', '<a href="http://athemes.com/theme/sydney" rel="designer">Sydney</a>' ); ?>
+			<?php echo "2016"; ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 
