@@ -5,11 +5,13 @@ if ( !function_exists('get_social_links')) :
 function get_social_links() {
     $youtube_link = get_option('youtube_link_url');
     $facebook_link = get_option('facebook_link_url');
+    $vkontakte_link = get_option('vkontakte_link_url');
 
     ?>
     <div class="social-links-container">
         <?php create_social_link($youtube_link, get_template_directory_uri() . '/images/social/youtube_icon.svg'); ?>
         <?php create_social_link($facebook_link, get_template_directory_uri() . '/images/social/facebook_icon.svg'); ?>
+        <?php create_social_link($vkontakte_link, get_template_directory_uri() . '/images/social/vkontakte_icon.svg'); ?>
     </div>
     <?php
 
@@ -31,6 +33,7 @@ function create_social_link($url, $logo_url) {
 function social_links_settings_register() {
     register_setting( 'social-links-settings-group', 'youtube_link_url');
     register_setting( 'social-links-settings-group', 'facebook_link_url');
+    register_setting( 'social-links-settings-group', 'vkontakte_link_url');
 }
 
 function social_links_settings_menu_create() {
@@ -53,11 +56,15 @@ function social_links_settings_page_builder() {
             <table class="form-table">
                 <tr>
                     <td>Youtube link:</td>
-                    <td><input type="text" name="youtube_link_url" value="<?php echo get_option('youtube_link_url'); ?>"></td>
+                    <td><input size="60" type="text" name="youtube_link_url" value="<?php echo get_option('youtube_link_url'); ?>"></td>
                 </tr>
                 <tr>
                     <td>Facebook link:</td>
-                    <td><input type="text" name="facebook_link_url" value="<?php echo get_option('facebook_link_url'); ?>"></td>
+                    <td><input size="60" type="text" name="facebook_link_url" value="<?php echo get_option('facebook_link_url'); ?>"></td>
+                </tr>
+                <tr>
+                    <td>Vkontakte link:</td>
+                    <td><input size="60" type="text" name="vkontakte_link_url" value="<?php echo get_option('vkontakte_link_url'); ?>"></td>
                 </tr>
             </table>
             <?php submit_button(); ?>
@@ -66,6 +73,6 @@ function social_links_settings_page_builder() {
     <?php
 }
 
-endif;    
+endif;
 
 ?>
