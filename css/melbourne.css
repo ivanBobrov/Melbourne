@@ -36,7 +36,7 @@ Melbourne header
     top: -40px;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1170px) { /* As a sydney template. Change to 1024 in the future. */
     .social-links-container {
         display: none;
     }
