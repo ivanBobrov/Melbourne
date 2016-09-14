@@ -198,7 +198,7 @@ add_action( 'wp_enqueue_scripts', 'sydney_scripts' );
 function melbourne_scripts() {
 	wp_enqueue_style('melbourne-style', get_template_directory_uri() . '/css/melbourne.css', ['sydney-style'], '0.1.2');
 	if (is_front_page()) {
-		wp_enqueue_script( 'melbourne-video', get_template_directory_uri() . '/js/video.js');
+		wp_enqueue_script( 'melbourne-video', get_template_directory_uri() . '/js/video.js', array(), '0.1.1');
 	}
 }
 add_action('wp_enqueue_scripts', 'melbourne_scripts');

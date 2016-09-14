@@ -1,3 +1,8 @@
+/*
+	Melbourne video script
+	version: 0.1.1
+*/
+
 (function videoModule($) {
 
 	var video = null;
@@ -209,7 +214,7 @@
 									$("#main-video-image").fadeIn(1500);
 								});
 							} else {
-								//video.cancelLoading();
+								video.cancelLoading();
 							}
 						}, 3000);
 					}
