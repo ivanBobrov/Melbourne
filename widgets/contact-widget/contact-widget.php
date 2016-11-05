@@ -42,12 +42,12 @@ class ContactWidget extends WP_Widget {
 					</div>
 				<?php endif; ?>
 				<div>
-					<?php if (!empty($position)) : ?>
-						<div><?php echo $position; ?></div>
-					<?php endif; ?>
-
 					<?php if (!empty($name)) : ?>
 						<div><b><?php echo $name; ?></b></div>
+					<?php endif; ?>
+
+					<?php if (!empty($position)) : ?>
+						<div><?php echo $position; ?></div>
 					<?php endif; ?>
 
 					<?php if (!empty($location)) : ?>
