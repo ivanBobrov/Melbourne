@@ -332,6 +332,8 @@ require get_template_directory() . '/widgets/contact-widget/contact-widget.php';
  */
 require get_template_directory() . '/widgets/illustrated-text-widget/illustrated-text-widget.php';
 
+require get_template_directory() . '/inc/mail-handler.php';
+
 /**
  *TGM Plugin activation.
  */
