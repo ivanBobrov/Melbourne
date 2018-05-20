@@ -9,9 +9,18 @@ if (!empty($_POST["mail"]) && !empty($_POST["file"])) {
 }
 
 function saveMail($mail) {
-	$dir = wp_upload_dir()['basedir'];
-	$file = "$dir/mail.list";
-	file_put_contents($file, $mail.PHP_EOL , FILE_APPEND | LOCK_EX);
+	global $wpdb;
+
+	$mail_id = $wpdb->get_var($wpdb->prepare("SELECT id FROM " . $wpdb->prefix . 
+											 "melbourne_mail WHERE mail = %s LIMIT 1", $mail));
+
+	if ($mail_id == NULL) {
+		$date = current_time('mysql');
+		$wpdb->insert($wpdb->prefix . 'melbourne_mail', array(
+			'mail' => $mail,
+			'insert_date' => $date
+		));
+	}
 }
 
 function sendFileToUser($file) {
