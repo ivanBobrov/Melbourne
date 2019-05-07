@@ -5,7 +5,7 @@ if (!empty($_POST["mail"]) && !empty($_POST["file"])) {
 	$pFile = $_POST["file"];
 	
 	saveMail($pMail);
-	sendFileToUser($pFile);
+	//sendFileToUser($pFile);
 }
 
 function saveMail($mail) {
