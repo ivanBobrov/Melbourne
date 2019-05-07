@@ -5,6 +5,7 @@ if (!empty($_POST["mail"]) && !empty($_POST["file"])) {
 	$pFile = $_POST["file"];
 	
 	saveMail($pMail);
+	header("https://askkm.org/fest2019");
 	//sendFileToUser($pFile);
 }
 
