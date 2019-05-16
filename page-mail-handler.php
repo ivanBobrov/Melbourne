@@ -10,6 +10,10 @@ if (!empty($_POST["mail"]) && !empty($_POST["file"])) {
 }
 
 function saveMail($mail) {
+	$melbourneMailStorage->addMail($mail);
+}
+
+function saveMailDeprecated($mail) {
 	global $wpdb;
 
 	$mail_id = $wpdb->get_var($wpdb->prepare("SELECT id FROM " . $wpdb->prefix . 
