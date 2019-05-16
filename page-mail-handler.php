@@ -4,13 +4,10 @@ if (!empty($_POST["mail"]) && !empty($_POST["file"])) {
 	$pMail = $_POST["mail"];
 	$pFile = $_POST["file"];
 	
-	saveMail($pMail);
+	$melbourneMailStorage->addMail($pMail);
+	
 	header("HTTP/1.1 200 OK");
 	//sendFileToUser($pFile);
-}
-
-function saveMail($mail) {
-	$melbourneMailStorage->addMail($mail);
 }
 
 function saveMailDeprecated($mail) {
